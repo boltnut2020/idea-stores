@@ -1,4 +1,4 @@
-# langstudy-php
+# idea-stores
 laravel + spatie Laravel-permission 
 
 ![screen_shot_langstudy_php](https://user-images.githubusercontent.com/68484099/91629966-c5073800-e9f7-11ea-8cf3-fc27ef946cc0.jpg)
