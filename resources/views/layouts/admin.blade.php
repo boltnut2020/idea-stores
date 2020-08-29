@@ -77,7 +77,7 @@
         <main class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-12">
+                    <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-1">
                         <div class="list-group">
                           <a href="/home" class="list-group-item list-group-item-action {{ (Request::segment(1) == "home") ? "active" : "" }}">
                             Home
@@ -102,7 +102,7 @@
                           </a>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-12">
+                    <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-12">
                         @yield('content')
                     </div>
                 </div>
