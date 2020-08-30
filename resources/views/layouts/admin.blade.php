@@ -82,17 +82,24 @@
                           <a href="/home" class="list-group-item list-group-item-action {{ (Request::segment(1) == "home") ? "active" : "" }}">
                             Home
                           </a>
-                          @role('admin')
-                          <a href="/users" class="list-group-item list-group-item-action {{ (Request::segment(1) == "users") ? "active" : "" }}">Users</a>
-                          <a href="/roles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "roles") ? "active" : "" }}">Roles</a>
-                          @endrole
+                        </div>
+                        <div class="list-group mt-1">
                           @hasanyrole('admin|writer')
-                          <a href="/articles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "articles") ? "active" : "" }}">Articles</a>
                           <a href="/memos" class="list-group-item list-group-item-action {{ (Request::segment(1) == "memos") ? "active" : "" }}">Memos</a>
-                          <a href="/categories" class="list-group-item list-group-item-action {{ (Request::segment(1) == "categories") ? "active" : "" }}">Categories</a>
                           <a href="/tags" class="list-group-item list-group-item-action {{ (Request::segment(1) == "tags") ? "active" : "" }}">Tags</a>
+                          <!--
+                          <a href="/articles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "articles") ? "active" : "" }}">Articles</a>
+                          <a href="/categories" class="list-group-item list-group-item-action {{ (Request::segment(1) == "categories") ? "active" : "" }}">Categories</a>
+                          -->
                           @endrole
                         </div>
+
+                        @role('admin')
+                        <div class="list-group mt-1">
+                          <a href="/users" class="list-group-item list-group-item-action {{ (Request::segment(1) == "users") ? "active" : "" }}">Users</a>
+                          <a href="/roles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "roles") ? "active" : "" }}">Roles</a>
+                        </div>
+                        @endrole
 
                         <div class="list-group mt-1">
                           <a class="list-group-item list-group-item-action" href="{{ route('logout') }}"
