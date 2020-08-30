@@ -114,7 +114,7 @@ class UsersController extends Controller
         // editで編集されたデータを$userにそれぞれ代入する
         $user->name = $request->name;
         $user->email = $request->email;
-        if ($request->has('password')) {
+        if ($request->filled('password')) {
             if ($request->password == $request->password_confirmation) {
                 
                 $user->password = Hash::make($request->password);
