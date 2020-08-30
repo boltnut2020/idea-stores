@@ -11,7 +11,11 @@ class Tag extends Model
 
     //
     public function memos() {
-        return $this->belongsToMany('App\Memos');
+        return $this->belongsToMany('App\Memo');
+    }
+
+    public function users() {
+        return $this->belongsToMany('App\User');
     }
 
     public static function bulkFirstOrCreate($tags) {

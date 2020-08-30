@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tag;
+use Illuminate\Support\Facades\Auth;
 
 class TagsController extends Controller
 {
@@ -15,7 +16,9 @@ class TagsController extends Controller
     public function index()
     {
         //
-        $tags = Tag::all();
+        $tags = Tag::whereHas('users', function($query) {
+			$query->where('users.id', Auth::id());
+		})->get();
         // return $videos;
         return view('tags.index', ['tags' => $tags]);
     }
@@ -47,6 +50,7 @@ class TagsController extends Controller
         // 保存
         $tag->save();
 
+        $tag->users()->sync(Auth::id());
         // 保存後 一覧ページへリダイレクト
         return redirect('/tags');
     }
@@ -92,6 +96,7 @@ class TagsController extends Controller
         $tag = Tag::find($id);
         $tag->name = $request->name;
         $tag->save();
+        $tag->users()->sync(Auth::id());
         return redirect("/tags");
     }
 

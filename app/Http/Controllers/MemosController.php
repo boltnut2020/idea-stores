@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Memo;
 use App\Tag;
+use App\User;
 use App\Traits\AutoLink; 
+use Illuminate\Support\Facades\Auth;
+
 
 class MemosController extends Controller
 {
@@ -17,8 +20,10 @@ class MemosController extends Controller
      */
     public function index()
     {
-        //
-        $memos = Memo::orderBy('id', 'desc')->paginate(10);;
+        // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
+        $memos = Memo::whereHas('users', function($query) {
+			$query->where('users.id', Auth::id());
+		})->orderBy('id', 'desc')->paginate(10);
         // return $videos;
         return view('memos.index', ['memos' => $memos]);
     }
@@ -33,6 +38,10 @@ class MemosController extends Controller
         //
         $memos = Memo::whereHas('tags', function($query) use($id){
 			$query->where('tags.id', $id);
+
+		})->whereHas('users', function($query) {
+			$query->where('users.id', Auth::id());
+
 		})->orderBy('id', 'desc')->paginate(10);
 
         // return $videos;
@@ -69,8 +78,11 @@ class MemosController extends Controller
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
             $memo->tags()->sync($tagIds);
+            $user = User::find(Auth::id());
+            $user->tags()->attach($tagIds);
         }
         
+        $memo->users()->sync(Auth::id());
         // 保存後 一覧ページへリダイレクト
         return redirect('/memos');
     }
@@ -120,7 +132,14 @@ class MemosController extends Controller
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
             $memo->tags()->sync($tagIds);
+            $user = User::find(Auth::id());
+            $user->tags()->attach($tagIds);
+            
         }
+
+        $userIds = [];
+        $userIds[] = Auth::id();        
+        $memo->users()->sync($userIds);
         return redirect("/memos");
     }
 
