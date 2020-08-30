@@ -9,7 +9,7 @@
     <table class="table">
       <thead class="thead-dark">
         <tr>
-          <th scope="col">#</th>
+          <!--<th scope="col">#</th>-->
           <th scope="col">MEMO</th>
           <th scope="col">ACTION</th>
         </tr>
@@ -17,8 +17,8 @@
       <tbody>
         @foreach ($memos as $memo)
         <tr>
-          <th scope="row">{{$memo->id}}</th>
-          <td>{{$memo->memo}}</td>
+          <!--<th scope="row">{{$memo->id}}</th>-->
+          <td class="text-break">{{$memo->memo}}</td>
           <td>
             <a class="btn btn-light" href="/memos/{{$memo->id}}/edit">{{ __('SHOW/EDIT') }}</a>
             <form class="d-inline" action="/memos/{{$memo->id}}" method="post">
@@ -31,5 +31,6 @@
         @endforeach
     	</tbody>
     </table>
+    {{ $memos->links() }}
   </div>
 @endsection

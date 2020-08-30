@@ -16,7 +16,7 @@ class MemosController extends Controller
     public function index()
     {
         //
-        $memos = Memo::all();
+        $memos = Memo::orderBy('id', 'desc')->paginate(5);;
         // return $videos;
         return view('memos.index', ['memos' => $memos]);
     }
@@ -116,7 +116,7 @@ class MemosController extends Controller
     {
         //
         // idを元にレコードを検索
-       $memo = Memos::find($id);
+       $memo = Memo::find($id);
        // 削除
        $memo->delete();
        // 一覧にリダイレクト
