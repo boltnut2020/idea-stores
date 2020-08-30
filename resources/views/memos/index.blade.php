@@ -18,7 +18,7 @@
         @foreach ($memos as $memo)
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
-          <td class="text-break">{!! $memo->memo !!}
+          <td class="text-break">{!! $memo->displayHtml() !!}
             <div class="pt-1">
               @foreach ($memo->tags as $tag)
                 <a class="small" href="{{ route('memos.tag', [$tag->id]) }}" >
