@@ -19,13 +19,16 @@
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
           <td class="text-break">{!! $memo->displayHtml() !!}
+            <div class="pt-1 small text-right">
+                    {{ $memo->created_at }}
+            </div>
             <div class="pt-1">
               @foreach ($memo->tags as $tag)
                 <a class="small" href="{{ route('memos.tag', [$tag->id]) }}" >
                     {{ $tag->name }}
                 </a>
               @endforeach
-            <div>
+            </div>
           </td>
           <td>
             <a class="btn btn-light" href="/memos/{{$memo->id}}/edit">{{ __('SHOW/EDIT') }}</a>
