@@ -18,7 +18,23 @@ class MemosController extends Controller
     public function index()
     {
         //
-        $memos = Memo::orderBy('id', 'desc')->paginate(5);;
+        $memos = Memo::orderBy('id', 'asc')->paginate(10);;
+        // return $videos;
+        return view('memos.index', ['memos' => $memos]);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function tag($id)
+    {
+        //
+        $memos = Memo::whereHas('tags', function($query) use($id){
+			$query->where('tags.id', $id);
+		})->orderBy('id', 'asc')->paginate(10);
+
         // return $videos;
         return view('memos.index', ['memos' => $memos]);
     }

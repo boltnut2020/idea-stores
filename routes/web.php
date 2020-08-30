@@ -25,6 +25,7 @@ Route::group(['middleware' => ['role:admin|writer']], function () {
     Route::resource('categories', 'CategoriesController');
     Route::resource('memos', 'MemosController');
     Route::resource('tags', 'TagsController');
+    Route::get('/memos/tag/{id}', 'MemosController@tag')->name('memos.tag');
 });
 
 Route::group(['middleware' => ['role:admin']], function () {
