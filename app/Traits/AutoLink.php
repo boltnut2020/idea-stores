@@ -7,7 +7,7 @@ trait AutoLink {
     var $urlReplace = '<a href="$1">Link</a>'; 
 
     public function getMemoAttribute() {
-		return preg_replace($this->urlPattern, $this->urlReplace, $this->attributes['memo']);
+		return nl2br(preg_replace($this->urlPattern, $this->urlReplace, $this->attributes['memo']));
     }
 }
 ?>
