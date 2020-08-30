@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Memo;
 use App\Tag;
+use App\Traits\AutoLink; 
 
 class MemosController extends Controller
 {
+    use AutoLink;
     /**
      * Display a listing of the resource.
      *
