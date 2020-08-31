@@ -80,6 +80,9 @@ class TagsController extends Controller
     {
         //
         $tag = Tag::find($id);
+        if (!$tag->users->contains(Auth::id())) {
+            return false;
+        }
         return view('tags.edit', ['tag' => $tag]);
     }
 
@@ -94,6 +97,9 @@ class TagsController extends Controller
     {
         //
         $tag = Tag::find($id);
+        if (!$tag->users->contains(Auth::id())) {
+            return false;
+        }
         $tag->name = $request->name;
         $tag->save();
         $tag->users()->sync(Auth::id());
@@ -110,7 +116,10 @@ class TagsController extends Controller
     {
         //
         // idを元にレコードを検索
-       $tag = Tag::find($id);
+        $tag = Tag::find($id);
+        if (!$tag->users->contains(Auth::id())) {
+            return false;
+        }
        // 削除
        $tag->delete();
        // 一覧にリダイレクト

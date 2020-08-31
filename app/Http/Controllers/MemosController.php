@@ -112,6 +112,10 @@ class MemosController extends Controller
     {
         //
         $memo = Memo::find($id);
+        if (!$memo->users->contains(Auth::id())) {
+            return false;
+        }
+        
         $tags = $memo->tags()->pluck('name')->toArray();
         return view('memos.edit', ['memo' => $memo]);
     }
@@ -127,6 +131,9 @@ class MemosController extends Controller
     {
         //
         $memo = Memo::find($id);
+        if (!$memo->users->contains(Auth::id())) {
+            return false;
+        }
         $memo->memo = $request->memo;
         $memo->save();
         if ( $request->has('tag') ) {
@@ -154,6 +161,9 @@ class MemosController extends Controller
         //
         // idを元にレコードを検索
        $memo = Memo::find($id);
+        if (!$memo->users->contains(Auth::id())) {
+            return false;
+        }
        // 削除
        $memo->delete();
        // 一覧にリダイレクト
