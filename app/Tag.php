@@ -22,7 +22,7 @@ class Tag extends Model
         $tagIds = [];
         $tags = explode(',', $tags);
         foreach($tags as $tag) {
-            $t = Tag::firstOrCreate(['name' => $tag]);
+            $t = Tag::firstOrCreate(['name' => trim($tag]));
             $tagIds[] = $t->id;
         }
         return $tagIds;
