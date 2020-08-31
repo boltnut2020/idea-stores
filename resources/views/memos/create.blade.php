@@ -11,7 +11,7 @@
       <input class="form-control" type="text" name="tag" placeholder="タグを入力してください">
       <small id="titleHelp" class="form-text text-muted">カテゴリのタイトルを入力します</small>
     </div>
-    <div>
+    <div class="text-right">
       <input class="btn btn-primary" type="submit" value="送信">
     </div>
   </form>

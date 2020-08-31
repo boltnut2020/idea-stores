@@ -9,7 +9,7 @@
       <label for="title">タグ</label>
       <input class="form-control" type="text" name="name" placeholder="タグを入力してください" />
     </div>
-    <div>
+    <div class="text-right">
       <input class="btn btn-primary" type="submit" value="送信">
     </div>
   </form>
