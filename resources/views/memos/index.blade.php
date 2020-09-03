@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="text-right mb-1">
-        <a href="/memos/create" class="btn btn-dark">{{ __('CREATE') }}</a>
+        <a href="/memos/create" class="btn btn-dark fixed-button">{{ __('+') }}</a>
     </div>
     <table class="table">
       <thead class="thead-dark">
@@ -43,5 +43,4 @@
     	</tbody>
     </table>
     {{ $memos->links() }}
-  </div>
 @endsection
