@@ -7,10 +7,12 @@
     {{ csrf_field() }}
     <div class="form-group">
       <label for="title">メモ</label>
-      <textarea class="form-control" type="text" name="memo" placeholder="メモを入力してください">{{ $memo->memo }}</textarea>
-      <input class="form-control" type="text" name="tag" placeholder="タグを入力してください" value="{{ implode(",", $memo->tags()->pluck('name')->toArray()) }}">
-      <small id="titleHelp" class="form-text text-muted">カテゴリのタイトルを入力します</small>
+      <textarea rows="4" class="form-control" type="text" name="memo" placeholder="メモを入力してください">{{ $memo->memo }}</textarea>
     </div>
+    <div class="form-group">
+      <input class="form-control" type="text" name="tag" placeholder="タグを入力してください" value="{{ implode(",", $memo->tags()->pluck('name')->toArray()) }}">
+    </div>
+
     <div class="text-right">
       <input type="hidden" name="_method" value="patch">
       <input class="btn btn-primary" type="submit" value="保存">

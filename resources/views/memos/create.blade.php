@@ -7,9 +7,10 @@
     {{ csrf_field() }}
     <div class="form-group">
       <label for="title">メモ</label>
-      <textarea class="form-control" type="text" name="memo" placeholder="メモを入力してください"></textarea>
+      <textarea rows="4" class="form-control" type="text" name="memo" placeholder="メモを入力してください"></textarea>
+    </div>
+    <div class="form-group">
       <input class="form-control" type="text" name="tag" placeholder="タグを入力してください">
-      <small id="titleHelp" class="form-text text-muted">カテゴリのタイトルを入力します</small>
     </div>
     <div class="text-right">
       <input class="btn btn-primary" type="submit" value="送信">
