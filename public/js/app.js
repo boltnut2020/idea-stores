@@ -6528,7 +6528,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.clock-parent[data-v-8452c78c] .clock {\n\tmargin-bottom: 0px;\n}\n.clock-parent[data-v-8452c78c] .clock__hours,\n.clock-parent[data-v-8452c78c] .clock__minutes,\n.clock-parent[data-v-8452c78c] .clock__seconds {\n  font-size: 1.8rem;\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n.clock-parent[data-v-8452c78c] .clock {\n\tmargin-bottom: 0px;\n}\n.clock-parent[data-v-8452c78c] .clock__hours,\n.clock-parent[data-v-8452c78c] .clock__minutes,\n.clock-parent[data-v-8452c78c] .clock__seconds {\n  font-size: 2rem;\n  position: relative;\n}\n", ""]);
 
 // exports
 
@@ -38323,7 +38323,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "clock-parent" }, [_c("vue-clock")], 1)
+  return _c("div", { staticClass: "clock-parent mt-1" }, [_c("vue-clock")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true

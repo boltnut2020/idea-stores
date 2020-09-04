@@ -1,5 +1,5 @@
 <template>
-  <div class="clock-parent">
+  <div class="clock-parent mt-1">
     <vue-clock />
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
 .clock-parent >>> .clock__hours,
 .clock-parent >>> .clock__minutes,
 .clock-parent >>> .clock__seconds {
-  font-size: 1.8rem;
+  font-size: 2rem;
   position: relative;
 }
 </style>
