@@ -17,4 +17,20 @@ class Memo extends Model
         return $this->belongsToMany('App\User');
     }
 
+    public function parent()
+    {
+        return $this->belongsTo('App\Memo', 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany('App\Memo', 'parent_id');
+    }
+
+	// recursive, loads all descendants
+	public function childrenRecursive()
+	{
+   		return $this->children()->with('childrenRecursive');
+	}
+
 }

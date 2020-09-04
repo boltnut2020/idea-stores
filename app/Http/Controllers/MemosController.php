@@ -28,6 +28,18 @@ class MemosController extends Controller
         return view('memos.index', ['memos' => $memos]);
     }
 
+    public function thread()
+    {
+        //$memos = Memo::with('childrenRecursive')->whereNull('parent_id');
+        //return view('memos.index', ['memos' => $memos]);
+        // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
+        $memos = Memo::whereHas('users', function($query) {
+			$query->where('users.id', Auth::id());
+		})->with('childrenRecursive')->whereNull('parent_id')->orderBy('id', 'desc')->paginate(10);
+        return view('memos.index', ['memos' => $memos]);
+
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -53,10 +65,10 @@ class MemosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id = null)
     {
         //
-        return view('memos.create');
+        return view('memos.create', ['id' => $id]);
     }
 
     /**
@@ -72,6 +84,7 @@ class MemosController extends Controller
         $memo = new Memo;
         // $requestにformからのデータが格納されているので、以下のようにそれぞれ代入する
         $memo->memo = $request->memo;
+        $memo->parent_id = $request->parent_id;
         // 保存
         $memo->save();
 
@@ -93,14 +106,12 @@ class MemosController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-//    public function show($id)
-//    {
-//        //
-//        // 引数で受け取った$idを元にfindでレコードを取得
-//        $memo = Memo::find($id);
-//        // viewにデータを渡す
-//        return view('memos.show', ['memo' => $memo]);
-//    }
+    public function show($id)
+    {
+        // $memo = Memo::find($id);
+        // viewにデータを渡す
+        // return view('memos.show', ['memo' => $memo]);
+    }
 
     /**
      * Show the form for editing the specified resource.
@@ -135,6 +146,7 @@ class MemosController extends Controller
             return false;
         }
         $memo->memo = $request->memo;
+        // $memo->parent_id = $request->parent_id;
         $memo->save();
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);

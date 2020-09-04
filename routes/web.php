@@ -24,8 +24,11 @@ Route::group(['middleware' => ['role:admin|writer']], function () {
     Route::resource('articles', 'ArticlesController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('memos', 'MemosController');
+    Route::get('memos/create/{id}', 'MemosController@create');
+    Route::get('memos/tag/{id}', 'MemosController@tag')->name('memos.tag');
+    // If it is not a 3-level url, show method is called.
+    Route::get('memos/thread/list', 'MemosController@thread')->name('memos.thread');
     Route::resource('tags', 'TagsController');
-    Route::get('/memos/tag/{id}', 'MemosController@tag')->name('memos.tag');
 });
 
 Route::group(['middleware' => ['role:admin']], function () {

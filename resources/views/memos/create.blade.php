@@ -5,6 +5,7 @@
 @section('content')
   <form action="/memos" method="post">
     {{ csrf_field() }}
+    <input class="form-control" type="hidden" name="parent_id" value="{{ $id }}">
     <div class="form-group">
       <label for="title">メモ</label>
       <textarea rows="4" class="form-control" type="text" name="memo" placeholder="メモを入力してください"></textarea>

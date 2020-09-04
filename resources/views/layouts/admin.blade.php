@@ -85,7 +85,8 @@
                         </div>
                         <div class="list-group mt-1">
                           @hasanyrole('admin|writer')
-                          <a href="/memos" class="list-group-item list-group-item-action {{ (Request::segment(1) == "memos") ? "active" : "" }}">Memos</a>
+                          <a href="/memos" class="list-group-item list-group-item-action {{ (Request::path() == "memos") ? "active" : "" }}">Memos</a>
+                          <a href="/memos/thread/list" class="pl-5 list-group-item list-group-item-action {{ (Request::path() == "memos/thread/list") ? "active" : "" }}">Thread</a>
                           <a href="/tags" class="list-group-item list-group-item-action {{ (Request::segment(1) == "tags") ? "active" : "" }}">Tags</a>
                           <!--
                           <a href="/articles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "articles") ? "active" : "" }}">Articles</a>
