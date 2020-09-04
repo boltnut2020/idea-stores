@@ -6528,7 +6528,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.clock-parent[data-v-8452c78c] .clock {\n\tmargin-bottom: 0px;\n}\n.clock-parent[data-v-8452c78c] .clock__hours,\n.clock-parent[data-v-8452c78c] .clock__minutes,\n.clock-parent[data-v-8452c78c] .clock__seconds {\n  font-size: 2rem;\n  position: relative;\n}\n", ""]);
+exports.push([module.i, "\n.clock-parent[data-v-8452c78c] .clock {\n\tmargin-bottom: 0px;\n}\n.clock-parent[data-v-8452c78c] .clock__hourtime\n{\n  font-size: 0.6rem;\n}\n.clock-parent[data-v-8452c78c] .clock__hours,\n.clock-parent[data-v-8452c78c] .clock__minutes,\n.clock-parent[data-v-8452c78c] .clock__seconds {\n  font-size: 1.6rem;\n  position: relative;\n}\n", ""]);
 
 // exports
 

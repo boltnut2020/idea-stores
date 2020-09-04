@@ -16,10 +16,16 @@ export default {
 .clock-parent >>> .clock {
 	margin-bottom: 0px;
 } 
+
+.clock-parent >>> .clock__hourtime
+{
+  font-size: 0.6rem;
+}
+
 .clock-parent >>> .clock__hours,
 .clock-parent >>> .clock__minutes,
 .clock-parent >>> .clock__seconds {
-  font-size: 2rem;
+  font-size: 1.6rem;
   position: relative;
 }
 </style>

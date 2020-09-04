@@ -78,9 +78,6 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-1">
-                        <div class="list-group">
-                            <clock-component></clock-component>
-                        </div>
                         <div class="list-group mt-1">
                           <a href="/home" class="list-group-item list-group-item-action {{ (Request::segment(1) == "home") ? "active" : "" }}">
                             Home
@@ -113,6 +110,9 @@
                         </div>
                     </div>
                     <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-12">
+                        <div class="text-right">
+                            <clock-component></clock-component>
+                        </div>
                         @yield('content')
                     </div>
                 </div>
