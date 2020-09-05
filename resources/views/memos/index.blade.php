@@ -3,8 +3,14 @@
 @section('title', '記事一覧')
 
 @section('content')
-    <div class="text-right mb-1">
-        <a href="/memos/create" class="btn btn-dark fixed-button">{{ __('+') }}</a>
+    <div class="text-right mb-1 row">
+        <div class="col-6 text-left">
+            <a href="{{ route('memos.index') }}" class="btn btn-dark {{ (request()->path() == "memos") ? "active" : "" }}">LIST</a>
+            <a href="{{ route('memos.thread') }}" class="btn btn-dark {{ (request()->path() == "memos/thread/list") ? "active" : "" }}">THREAD</a>
+        </div>
+        <div class="col-6 text-right">
+            <a href="/memos/create" class="btn btn-dark fixed-button">{{ __('+') }}</a>
+        </div>
     </div>
     <table class="table">
       <thead class="thead-dark">
