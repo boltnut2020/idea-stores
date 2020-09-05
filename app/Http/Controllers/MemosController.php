@@ -87,9 +87,6 @@ class MemosController extends Controller
         $memo->parent_id = $request->parent_id;
         // 保存
         $memo->save();
-        if ($request->has('parent_id')) {
-            $memo->updateParentDate($request->parent_id);
-        }
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
             $memo->tags()->sync($tagIds);
@@ -97,7 +94,11 @@ class MemosController extends Controller
             $user->tags()->attach($tagIds);
         }
         $memo->users()->sync(Auth::id());
-        // 保存後 一覧ページへリダイレクト
+        if ($request->has('parent_id')) {
+            $memo->updateParentDate($request->parent_id);
+            return redirect('/memos/thread/list');
+        }
+       // 保存後 一覧ページへリダイレクト
         return redirect('/memos');
     }
 
@@ -150,9 +151,6 @@ class MemosController extends Controller
         // $memo->parent_id = $request->parent_id;
         $memo->updated_at = now();
         $memo->save();
-        if ($memo->parent_id) {
-            $memo->updateParentDate($memo->parent_id);
-        }
 
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
@@ -165,6 +163,11 @@ class MemosController extends Controller
         $userIds = [];
         $userIds[] = Auth::id();        
         $memo->users()->sync($userIds);
+
+        if ($memo->parent_id) {
+            $memo->updateParentDate($memo->parent_id);
+            return redirect("/memos/thread/list");
+        }
         return redirect("/memos");
     }
 
