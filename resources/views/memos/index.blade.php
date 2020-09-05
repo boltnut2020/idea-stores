@@ -18,7 +18,7 @@
         @foreach ($memos as $memo)
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
-          <td class="text-break">{!! $memo->displayHtml() !!}
+          <td class="text-break" style="width: 70%">{!! $memo->displayHtml() !!}
             <div class="pt-1 small text-right">
                     {{ $memo->created_at }}
             </div>
@@ -46,7 +46,7 @@
         @foreach ($memo->childrenRecursive as $children)
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
-          <td class="text-break pl-5">{!! $children->displayHtml() !!}
+          <td class="text-break pl-5" style="width: 70%">{!! $children->displayHtml() !!}
             <div class="pt-1 small text-right">
                     {{ $children->created_at }}
             </div>
