@@ -11,7 +11,7 @@
         <tr>
           <!--<th scope="col">#</th>-->
           <th scope="col">MEMO</th>
-          <th scope="col">ACTION</th>
+          <!--<th scope="col">ACTION</th>-->
         </tr>
       </thead>
       <tbody>
@@ -20,7 +20,16 @@
           <!--<th scope="row">{{$memo->id}}</th>-->
           <td class="text-break" style="width: 70%">{!! $memo->displayHtml() !!}
             <div class="pt-1 small text-right">
-                    {{ $memo->created_at }}
+                {{ $memo->created_at }}
+                <a class="btn btn-light" href="/memos/create/{{$memo->id}}"><i class="fas fa-plus"></i></a>
+                <a class="btn btn-light" href="/memos/{{$memo->id}}/edit"><i class="fas fa-edit"></i></a>
+                <form class="d-inline" action="/memos/{{$memo->id}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="icon-button">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
             </div>
             <div class="pt-1">
               @foreach ($memo->tags as $tag)
@@ -30,6 +39,7 @@
               @endforeach
             </div>
           </td>
+<!--
           <td>
             <a class="btn btn-light" href="/memos/create/{{$memo->id}}"><i class="fas fa-plus"></i></a>
             <a class="btn btn-light" href="/memos/{{$memo->id}}/edit"><i class="fas fa-edit"></i></a>
@@ -41,14 +51,23 @@
                 </button>
             </form>
     	  </td>
+-->
         </tr>
         @if (request()->path() == "memos/thread/list")
         @foreach ($memo->childrenRecursive as $children)
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
-          <td class="text-break pl-5" style="width: 70%">{!! $children->displayHtml() !!}
+          <td class="text-break pl-4" style="width: 70%">{!! $children->displayHtml() !!}
             <div class="pt-1 small text-right">
-                    {{ $children->created_at }}
+                {{ $children->created_at }}
+                <a class="btn btn-light" href="/memos/{{$children->id}}/edit"><i class="fas fa-edit"></i></a>
+                <form class="d-inline" action="/memos/{{$children->id}}" method="post">
+                    {{ csrf_field() }}
+                    <input type="hidden" name="_method" value="DELETE">
+                    <button class="icon-button">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </form>
             </div>
             <div class="pt-1">
               @foreach ($children->tags as $tag)
@@ -58,6 +77,7 @@
               @endforeach
             </div>
           </td>
+<!--
           <td>
             <a class="btn btn-light" href="/memos/{{$children->id}}/edit"><i class="fas fa-edit"></i></a>
             <form class="d-inline" action="/memos/{{$children->id}}" method="post">
@@ -68,11 +88,11 @@
                 </button>
             </form>
     	  </td>
+-->
         </tr>
         @endforeach
         @endif
         @endforeach
-
     	</tbody>
     </table>
     {{ $memos->links() }}
