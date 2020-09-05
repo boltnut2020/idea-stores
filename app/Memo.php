@@ -4,10 +4,14 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\AutoLink; 
+use Carbon\Carbon;
 
 class Memo extends Model
 {
     use AutoLink;
+    protected $fillable = ['updated_at'];
+
+    
     //
     public function tags() {
         return $this->belongsToMany('App\Tag');
@@ -33,4 +37,7 @@ class Memo extends Model
    		return $this->children()->with('childrenRecursive');
 	}
 
+    public function updateParentDate($id) {
+        return $this->find($id)->update(['updated_at' => Carbon::now()]);
+    }
 }

@@ -35,7 +35,7 @@ class MemosController extends Controller
         // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
         $memos = Memo::whereHas('users', function($query) {
 			$query->where('users.id', Auth::id());
-		})->with('childrenRecursive')->whereNull('parent_id')->orderBy('id', 'desc')->paginate(10);
+		})->with('childrenRecursive')->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
         return view('memos.index', ['memos' => $memos]);
 
     }
@@ -87,14 +87,15 @@ class MemosController extends Controller
         $memo->parent_id = $request->parent_id;
         // 保存
         $memo->save();
-
+        if ($request->has('parent_id')) {
+            $memo->updateParentDate($request->parent_id);
+        }
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
             $memo->tags()->sync($tagIds);
             $user = User::find(Auth::id());
             $user->tags()->attach($tagIds);
         }
-        
         $memo->users()->sync(Auth::id());
         // 保存後 一覧ページへリダイレクト
         return redirect('/memos');
@@ -147,7 +148,12 @@ class MemosController extends Controller
         }
         $memo->memo = $request->memo;
         // $memo->parent_id = $request->parent_id;
+        $memo->updated_at = now();
         $memo->save();
+        if ($memo->parent_id) {
+            $memo->updateParentDate($memo->parent_id);
+        }
+
         if ( $request->has('tag') ) {
             $tagIds = Tag::bulkFirstOrCreate($request->tag);
             $memo->tags()->sync($tagIds);

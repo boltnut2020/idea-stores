@@ -31,12 +31,14 @@
             </div>
           </td>
           <td>
-            <a class="btn btn-light" href="/memos/create/{{$memo->id}}">{{ __('CREATE CHILD') }}</a>
-            <a class="btn btn-light" href="/memos/{{$memo->id}}/edit">{{ __('SHOW/EDIT') }}</a>
+            <a class="btn btn-light" href="/memos/create/{{$memo->id}}"><i class="fas fa-plus"></i></a>
+            <a class="btn btn-light" href="/memos/{{$memo->id}}/edit"><i class="fas fa-edit"></i></a>
             <form class="d-inline" action="/memos/{{$memo->id}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE">
-                <input class="btn btn-light" type="submit" name="" value="{{ __('DELETE') }}">
+                <button class="icon-button">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </form>
     	  </td>
         </tr>
@@ -57,11 +59,13 @@
             </div>
           </td>
           <td>
-            <a class="btn btn-light" href="/memos/{{$children->id}}/edit">{{ __('SHOW/EDIT') }}</a>
+            <a class="btn btn-light" href="/memos/{{$children->id}}/edit"><i class="fas fa-edit"></i></a>
             <form class="d-inline" action="/memos/{{$children->id}}" method="post">
                 {{ csrf_field() }}
                 <input type="hidden" name="_method" value="DELETE">
-                <input class="btn btn-light" type="submit" name="" value="{{ __('DELETE') }}">
+                <button class="icon-button">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
             </form>
     	  </td>
         </tr>
