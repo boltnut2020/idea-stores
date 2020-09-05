@@ -57,7 +57,7 @@
         @foreach ($memo->childrenRecursive as $children)
         <tr>
           <!--<th scope="row">{{$memo->id}}</th>-->
-          <td class="text-break pl-4" style="width: 70%">{!! $children->displayHtml() !!}
+          <td class="text-break pl-4" style="width: 70%"><i class="fas fa-list mr-2"></i>{!! $children->displayHtml() !!}
             <div class="pt-1 small text-right">
                 {{ $children->created_at }}
                 <a class="btn btn-light" href="/memos/{{$children->id}}/edit"><i class="fas fa-edit"></i></a>
