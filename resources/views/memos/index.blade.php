@@ -61,7 +61,7 @@
 -->
         </tr>
         @if (request()->path() == "memos/thread/list")
-        @foreach ($memo->childrenRecursive as $children)
+        @foreach ($memo->childrenRecursive->reverse() as $children)
         <tr>
           <th scope="row"></th>
           <td class="text-break" >{!! $children->displayHtml() !!}

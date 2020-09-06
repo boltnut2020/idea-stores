@@ -30,14 +30,13 @@ class MemosController extends Controller
 
     public function thread()
     {
-        //$memos = Memo::with('childrenRecursive')->whereNull('parent_id');
-        //return view('memos.index', ['memos' => $memos]);
-        // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
         $memos = Memo::whereHas('users', function($query) {
 			$query->where('users.id', Auth::id());
-		})->with('childrenRecursive')->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
-        return view('memos.index', ['memos' => $memos]);
+		})->with(['childrenRecursive' => function($query) {
+            $query->orderBy('updated_at', 'desc')->take(100);
+        }])->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
 
+        return view('memos.index', ['memos' => $memos]);
     }
 
     /**
@@ -94,7 +93,7 @@ class MemosController extends Controller
             $user->tags()->attach($tagIds);
         }
         $memo->users()->sync(Auth::id());
-        if ($request->has('parent_id')) {
+        if ($request->filled('parent_id')) {
             $memo->updateParentDate($request->parent_id);
             return redirect('/memos/thread/list');
         }
