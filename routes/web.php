@@ -40,8 +40,11 @@ Route::group(['middleware' => ['role:writer']], function () {
 });
 
 // Not Login User
-Route::get('/', 'FreePageController@index');
-Route::get('articles/detail/{$id}', 'FreePageController@article')->name('articles.detail');
+Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
+    Route::get('/', 'FrontendController@index');
+    Route::get('articles/index', 'ArticlesController@index')->name('articles.index');
+    Route::get('articles/show/{article}', 'ArticlesController@show')->name('articles.show');
+});
 // Route::get('/', function () {
 //     // return view('welcome');
 // });

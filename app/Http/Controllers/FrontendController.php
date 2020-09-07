@@ -6,13 +6,11 @@ use Illuminate\Http\Request;
 use App\Article;
 use App\Tag;
 use App\User;
-use App\Traits\AutoLink; 
 use Illuminate\Support\Facades\Auth;
 
 
-class FreePageController extends Controller
+class FrontendController extends Controller
 {
-    use AutoLink;
     /**
      * Display a listing of the resource.
      *

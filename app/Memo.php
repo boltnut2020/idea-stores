@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Traits\AutoLink; 
+use App\Traits\HtmlDisplay; 
 use Carbon\Carbon;
 
 class Memo extends Model
 {
-    use AutoLink;
+    use HtmlDisplay;
     protected $fillable = ['updated_at'];
 
     

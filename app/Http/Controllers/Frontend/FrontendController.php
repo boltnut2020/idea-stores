@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Memo;
+use App\Article;
 use App\Tag;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 
 
-class MemosController extends Controller
+class FrontendController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,21 +19,19 @@ class MemosController extends Controller
      */
     public function index()
     {
-        // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
-        $memos = Memo::whereHas('users', function($query) {
-			$query->where('users.id', Auth::id());
-		})->orderBy('id', 'desc')->paginate(10);
-        // return $videos;
-        return view('memos.index', ['memos' => $memos]);
+        $articles = Article::orderBy('id', 'desc')->paginate(10);;
+        return view('articles.index', ['articles' => $articles]);
     }
 
     public function thread()
     {
+
         $memos = Memo::whereHas('users', function($query) {
 			$query->where('users.id', Auth::id());
 		})->with(['childrenRecursive' => function($query) {
             $query->orderBy('updated_at', 'desc')->take(100);
         }])->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
+
         return view('memos.index', ['memos' => $memos]);
     }
 
@@ -93,10 +91,10 @@ class MemosController extends Controller
         $memo->users()->sync(Auth::id());
         if ($request->filled('parent_id')) {
             $memo->updateParentDate($request->parent_id);
-            return redirect()->route('admin.memos.thread');
+            return redirect('/memos/thread/list');
         }
        // 保存後 一覧ページへリダイレクト
-        return redirect()->route('admin.memos.index');
+        return redirect('/memos');
     }
 
     /**
@@ -107,9 +105,9 @@ class MemosController extends Controller
      */
     public function show($id)
     {
-        // $memo = Memo::find($id);
+        $article = Article::find($id);
         // viewにデータを渡す
-        // return view('memos.show', ['memo' => $memo]);
+        return view('articles.show', ['article' => $article]);
     }
 
     /**
@@ -127,7 +125,7 @@ class MemosController extends Controller
         }
         
         $tags = $memo->tags()->pluck('name')->toArray();
-        return view('admin.memos.edit', ['memo' => $memo]);
+        return view('memos.edit', ['memo' => $memo]);
     }
 
     /**
@@ -163,9 +161,9 @@ class MemosController extends Controller
 
         if ($memo->parent_id) {
             $memo->updateParentDate($memo->parent_id);
-            return redirect()->route("admin.memos.thread");
+            return redirect("/memos/thread/list");
         }
-        return redirect()->route("admin.memos.index");
+        return redirect("/memos");
     }
 
     /**
@@ -185,6 +183,6 @@ class MemosController extends Controller
        // 削除
        $memo->delete();
        // 一覧にリダイレクト
-       return redirect()->route('admin.memos.index');        
+       return redirect('/memos');        
     }
 }

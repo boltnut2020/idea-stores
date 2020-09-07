@@ -1,10 +1,7 @@
-{{-- layoutsフォルダのapplication.blade.phpを継承 --}}
-@extends('layouts.admin')
+@extends('layouts.frontend')
 
-{{-- @yield('title')にテンプレートごとの値を代入 --}}
 @section('title', '記事詳細')
 
-{{-- application.blade.phpの@yield('content')に以下のレイアウトを代入 --}}
 @section('content')
 
 <div class="card">
@@ -14,5 +11,5 @@
       <p class="card-text">{{$article->content}}</p>
   </div>
 </div>
-<a href="/articles">一覧に戻る</a>
+<a href="{{ route('frontend.articles.index') }}">一覧に戻る</a>
 @endsection

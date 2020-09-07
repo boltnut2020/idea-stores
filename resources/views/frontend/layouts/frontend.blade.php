@@ -80,34 +80,8 @@
                 <div class="row">
                     <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-1">
                         <div class="list-group mt-1">
-                          <a href="/home" class="list-group-item list-group-item-action {{ (Request::segment(1) == "home") ? "active" : "" }}">
+                          <a href="/" class="list-group-item list-group-item-action">
                             Home
-                          </a>
-                        </div>
-                        <div class="list-group mt-1">
-                          @hasanyrole('admin|writer')
-                          <a href="/memos" class="list-group-item list-group-item-action {{ (Request::path() == "memos") ? "active" : "" }}">Memos</a>
-                          <a href="/memos/thread/list" class="pl-5 list-group-item list-group-item-action {{ (Request::path() == "memos/thread/list") ? "active" : "" }}">Thread</a>
-                          <a href="/tags" class="list-group-item list-group-item-action {{ (Request::segment(1) == "tags") ? "active" : "" }}">Tags</a>
-                          <!--
-                          <a href="/articles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "articles") ? "active" : "" }}">Articles</a>
-                          <a href="/categories" class="list-group-item list-group-item-action {{ (Request::segment(1) == "categories") ? "active" : "" }}">Categories</a>
-                          -->
-                          @endrole
-                        </div>
-
-                        @role('admin')
-                        <div class="list-group mt-1">
-                          <a href="/users" class="list-group-item list-group-item-action {{ (Request::segment(1) == "users") ? "active" : "" }}">Users</a>
-                          <a href="/roles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "roles") ? "active" : "" }}">Roles</a>
-                        </div>
-                        @endrole
-
-                        <div class="list-group mt-1">
-                          <a class="list-group-item list-group-item-action" href="{{ route('logout') }}"
-                              onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                               {{ __('Logout') }}
                           </a>
                         </div>
                     </div>
@@ -121,6 +95,14 @@
             </div>
         </main>
     </div>
-    <!--<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=true&skin=sunburst"></script>-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=true&skin=sunburst"></script>
+    <script>
+        var elm = document.getElementsByTagName('pre')
+        var length = elm.length;
+        for (var i = 0; i < length; i++) {
+            elm[i].className = elm[i].className + " prettyprint";
+        }
+    </script>
+
 </body>
 </html>
