@@ -4,7 +4,7 @@
 
 @section('content')
 
-<form action="/articles" method="post">
+<form action="{{ route('admin.articles.store')}}" method="post">
 <div class="row">
   <div class="col-9">
     {{ csrf_field() }}

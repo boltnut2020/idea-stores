@@ -57,7 +57,7 @@ class ArticlesController extends Controller
             $article->categories()->sync($request->categories);
         }
         // 保存後 一覧ページへリダイレクト
-        return redirect('/articles');
+        return redirect()->route('admin.articles.index');
     }
     /**
      * Display the specified resource.
@@ -113,7 +113,7 @@ class ArticlesController extends Controller
             $article->categories()->sync($request->categories);
         }
         // 詳細ページへリダイレクト
-        return redirect("/articles/".$id);
+        return redirect()->route('admin.articles.show', ['article' => $id]);
     }
 
     /**

@@ -86,6 +86,7 @@
                         </div>
                         <div class="list-group mt-1">
                           @hasanyrole('admin|writer')
+                          <a href="{{ route('admin.articles.index') }}" class="list-group-item list-group-item-action {{ (Request::path() == "articles") ? "active" : "" }}">Articles</a>
                           <a href="{{ route('admin.memos.index') }}" class="list-group-item list-group-item-action {{ (Request::path() == "memos") ? "active" : "" }}">Memos</a>
                           <a href="{{ route('admin.memos.thread') }}" class="pl-5 list-group-item list-group-item-action {{ (Request::path() == route('admin.memos.thread')) ? "active" : "" }}">Thread</a>
                           <a href="{{ route('admin.tags.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(1) == "tags") ? "active" : "" }}">Tags</a>
@@ -121,6 +122,13 @@
             </div>
         </main>
     </div>
-    <!--<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=true&skin=sunburst"></script>-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=true&skin=sunburst"></script>
+    <script>
+        var elm = document.getElementsByTagName('pre')
+        var length = elm.length;
+        for (var i = 0; i < length; i++) {
+            elm[i].className = elm[i].className + " prettyprint";
+        }
+    </script>
 </body>
 </html>
