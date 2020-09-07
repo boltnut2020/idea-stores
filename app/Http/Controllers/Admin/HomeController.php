@@ -26,7 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //$user = User::find(Sentry::getUser()->id);
         $user = User::find(Auth::user()->id);
         return view('home', ['user' => $user]);
     }
