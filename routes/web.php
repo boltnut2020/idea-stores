@@ -44,6 +44,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend'], function () {
     Route::get('/', 'FrontendController@index');
     Route::get('articles/index', 'ArticlesController@index')->name('articles.index');
     Route::get('articles/show/{article}', 'ArticlesController@show')->name('articles.show');
+    Route::get('articles/category/{category}', 'ArticlesController@category')->name('articles.category');
 });
 // Route::get('/', function () {
 //     // return view('welcome');

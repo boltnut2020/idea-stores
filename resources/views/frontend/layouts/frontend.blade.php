@@ -78,20 +78,21 @@
         <main class="py-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-1">
+                    <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-1">
+                        <div class="text-right">
+                        </div>
+                        @yield('content')
+                    </div>
+                     <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-12">
+                        <clock-component></clock-component>
                         <div class="list-group mt-1">
                           <a href="/" class="list-group-item list-group-item-action">
                             Home
                           </a>
                         </div>
+                        <x-category-tree categories></x-category-tree>
                     </div>
-                    <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-12">
-                        <div class="text-right">
-                            <clock-component></clock-component>
-                        </div>
-                        @yield('content')
-                    </div>
-                </div>
+               </div>
             </div>
         </main>
     </div>

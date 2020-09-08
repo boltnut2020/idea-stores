@@ -36,4 +36,20 @@ class ArticlesController extends Controller
         // viewにデータを渡す
         return view('articles.show', ['article' => $article]);
     }
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function category($id)
+    {
+        //
+        $articles = Article::whereHas('categories', function($query) use($id){
+			$query->where('categories.id', $id);
+
+		})->orderBy('id', 'desc')->paginate(10);
+
+        return view('articles.index', ['articles' => $articles]);
+    }
+
 }
