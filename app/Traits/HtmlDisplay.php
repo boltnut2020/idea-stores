@@ -25,6 +25,7 @@ trait HtmlDisplay {
      */
     public function getContentAttribute($value)
     {
+        if (!$value) return null;
         // Hash the text with the lowest computational hasher available.
         $key = 'article|'.$this->id . '|' . hash('sha256', $value);
         // If the cache with this hash exists, return it, otherwise
@@ -40,6 +41,7 @@ trait HtmlDisplay {
      */
     public function getDescriptionAttribute($value)
     {
+        if (!$value) return null;
         // Hash the text with the lowest computational hasher available.
         $key = 'article|'.$this->id . '|' . hash('sha256', $value);
         // If the cache with this hash exists, return it, otherwise
@@ -54,7 +56,7 @@ trait HtmlDisplay {
      *
      * @return \Illuminate\Support\HtmlString
      */
-    protected function parseMarkdownToHtml($value = null)
+    protected function parseMarkdownToHtml($value)
     {
         return new HtmlString(app(\Parsedown::class)->text($value));
     }
