@@ -27,7 +27,7 @@ trait HtmlDisplay {
     {
         if (!$value) return null;
         // Hash the text with the lowest computational hasher available.
-        $key = 'article|'.$this->id . '|' . hash('sha256', $value);
+        $key = 'article-content|'.$this->id . '|' . hash('sha256', $value);
         // If the cache with this hash exists, return it, otherwise
         // parse it again and save it into the cache for 1 day.       
         return Cache::remember($key, 86400, function () use ($value) {
@@ -43,7 +43,7 @@ trait HtmlDisplay {
     {
         if (!$value) return null;
         // Hash the text with the lowest computational hasher available.
-        $key = 'article|'.$this->id . '|' . hash('sha256', $value);
+        $key = 'article-description|'.$this->id . '|' . hash('sha256', $value);
         // If the cache with this hash exists, return it, otherwise
         // parse it again and save it into the cache for 1 day.       
         return Cache::remember($key, 86400, function () use ($value) {
