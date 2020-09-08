@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Idea Stores') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!--<script src="{{ asset('js/app.js') }}" defer></script>-->
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <!-- Fonts -->
@@ -84,7 +84,6 @@
                         @yield('content')
                     </div>
                      <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-12">
-                        <clock-component></clock-component>
                         <div class="list-group mt-1">
                           <a href="/" class="list-group-item list-group-item-action">
                             Home
