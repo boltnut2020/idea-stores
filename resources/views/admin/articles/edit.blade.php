@@ -14,7 +14,7 @@
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input class="form-control" type="text" name="description" placeholder="概要を入力してください" value="{{ $article->getRawOriginal('description') }}">
+      <textarea class="form-control"  name="description" placeholder="本文を入力してください">{{ $article->getRawOriginal('description') }}</textarea>
       <small id="descriptionHelp" class="form-text text-muted">記事の概要を入力します</small>
     </div>
     <div class="form-group">

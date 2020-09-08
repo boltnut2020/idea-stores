@@ -10,7 +10,8 @@
     <div class="card mb-2">
         <div class="card-body">
             <h5 class="card-title">{{$article->title}}</h5>
-            <p>{{$article->article_id}}</p>
+            <p class="card-text">{{$article->description }}</p>
+            <p class="card-text text-right">{{$article->created_at }}</p>
             <div class="text-right">
                 <a class="btn btn-light" href="{{ route('admin.articles.show', ['article' => $article->id]) }}">{{ __('SHOW') }}</a>
                 <a class="btn btn-light" href="{{ route('admin.articles.edit', ['article' => $article->id]) }}">{{ __('EDIT') }}</a>

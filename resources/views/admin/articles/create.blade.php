@@ -15,7 +15,7 @@
     </div>
     <div class="form-group">
       <label for="description">Description</label>
-      <input class="form-control" type="text" name="description" placeholder="概要を入力してください">
+      <textarea class="form-control" name="description" placeholder="概要を入力してください"></textarea>
       <small id="descriptionHelp" class="form-text text-muted">記事の概要を入力します</small>
     </div>
     <div class="form-group">
