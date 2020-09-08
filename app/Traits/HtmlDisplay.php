@@ -54,7 +54,7 @@ trait HtmlDisplay {
      *
      * @return \Illuminate\Support\HtmlString
      */
-    protected function parseMarkdownToHtml(string $value)
+    protected function parseMarkdownToHtml($value = null)
     {
         return new HtmlString(app(\Parsedown::class)->text($value));
     }
