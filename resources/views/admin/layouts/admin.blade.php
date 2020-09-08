@@ -89,6 +89,7 @@
                           <a href="{{ route('admin.memos.index') }}" class="list-group-item list-group-item-action {{ (Request::path() == "memos") ? "active" : "" }}">Memos</a>
                           <a href="{{ route('admin.memos.thread') }}" class="pl-5 list-group-item list-group-item-action {{ (Request::path() == route('admin.memos.thread')) ? "active" : "" }}">Thread</a>
                           <a href="{{ route('admin.tags.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(1) == "tags") ? "active" : "" }}">Tags</a>
+                          <a href="{{ route('admin.categories.index') }}" class="list-group-item list-group-item-action {{ (Request::segment(1) == "categories") ? "active" : "" }}">Categories</a>
                           <!--
                           <a href="/articles" class="list-group-item list-group-item-action {{ (Request::segment(1) == "articles") ? "active" : "" }}">Articles</a>
                           <a href="/categories" class="list-group-item list-group-item-action {{ (Request::segment(1) == "categories") ? "active" : "" }}">Categories</a>

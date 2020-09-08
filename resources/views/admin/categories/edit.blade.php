@@ -3,11 +3,11 @@
 @section('title', '編集')
 
 @section('content')
-  <form action="/categories/{{$category->id}}" method="post">
+  <form action="{{ route('admin.categories.update', ['category' => $category->id]) }}" method="post">
     {{ csrf_field() }}
     <div class="form-group">
       <label for="title">タイトル</label>
-      <input class="form-control" type="text" name="title" placeholder="カテゴリのタイトルを入力してください" value="{{$category->title}}">
+      <input class="form-control" type="text" name="name" placeholder="カテゴリのタイトルを入力してください" value="{{$category->name}}">
       <small id="titleHelp" class="form-text text-muted">カテゴリのタイトルを入力します</small>
     </div>
     <div class="form-group">

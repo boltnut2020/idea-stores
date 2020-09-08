@@ -53,7 +53,7 @@ class CategoriesController extends Controller
         $category->save();
 
         // 保存後 一覧ページへリダイレクト
-        return redirect('/categories');
+        return redirect()->route('admin.categories.index');
     }
 
     /**
@@ -101,7 +101,7 @@ class CategoriesController extends Controller
         $category->slug = $request->slug;
         $category->parent_id = $request->parent_id;
         $category->save();
-        return redirect("/categories/".$id);
+        return redirect()->route("admin.categories.show", ['category' => $id]);
     }
 
     /**
@@ -118,6 +118,6 @@ class CategoriesController extends Controller
        // 削除
        $category->delete();
        // 一覧にリダイレクト
-       return redirect('/categories');        
+       return redirect()->route('admin.categories.index');        
     }
 }
