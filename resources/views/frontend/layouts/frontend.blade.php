@@ -89,7 +89,7 @@
                             Home
                           </a>
                         </div>
-                        <x-category-tree categories></x-category-tree>
+                        <x-category-tree-front categories></x-category-tree-front>
                     </div>
                </div>
             </div>
