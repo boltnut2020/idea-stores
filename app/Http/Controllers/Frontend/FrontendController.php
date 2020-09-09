@@ -19,7 +19,7 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('id', 'desc')->paginate(10);;
+        $articles = Article::where('display', true)->orderBy('id', 'desc')->paginate(10);;
         return view('articles.index', ['articles' => $articles]);
     }
 
@@ -27,8 +27,8 @@ class FrontendController extends Controller
     {
 
         $memos = Memo::whereHas('users', function($query) {
-			$query->where('users.id', Auth::id());
-		})->with(['childrenRecursive' => function($query) {
+            $query->where('users.id', Auth::id());
+        })->with(['childrenRecursive' => function($query) {
             $query->orderBy('updated_at', 'desc')->take(100);
         }])->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
 
@@ -44,12 +44,12 @@ class FrontendController extends Controller
     {
         //
         $memos = Memo::whereHas('tags', function($query) use($id){
-			$query->where('tags.id', $id);
+            $query->where('tags.id', $id);
 
-		})->whereHas('users', function($query) {
-			$query->where('users.id', Auth::id());
+        })->whereHas('users', function($query) {
+            $query->where('users.id', Auth::id());
 
-		})->orderBy('id', 'desc')->paginate(10);
+        })->orderBy('id', 'desc')->paginate(10);
 
         // return $videos;
         return view('memos.index', ['memos' => $memos]);

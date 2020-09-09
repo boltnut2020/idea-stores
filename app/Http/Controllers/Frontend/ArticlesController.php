@@ -18,7 +18,7 @@ class ArticlesController extends Controller
     public function index()
     {
         //
-        $articles = Article::orderBy('id', 'desc')->paginate(5);
+        $articles = Article::where('display', true)->orderBy('id', 'desc')->paginate(5);
         // return $articles;
         return view('articles.index', ['articles' => $articles]);
     }
@@ -32,7 +32,8 @@ class ArticlesController extends Controller
     {
         //
         // 引数で受け取った$idを元にfindでレコードを取得
-        $article = Article::find($id);
+        $article = Article::where('display', true)->find($id);
+        if (!$article) abort(404);
         // viewにデータを渡す
         return view('articles.show', ['article' => $article]);
     }
