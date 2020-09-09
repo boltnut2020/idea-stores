@@ -45,9 +45,9 @@ class ArticlesController extends Controller
     {
         //
         $articles = Article::whereHas('categories', function($query) use($id){
-			$query->where('categories.id', $id);
+            $query->where('categories.id', $id);
 
-		})->orderBy('id', 'desc')->paginate(10);
+        })->orderBy('id', 'desc')->paginate(10);
 
         return view('articles.index', ['articles' => $articles]);
     }
