@@ -10,6 +10,7 @@
     <title>{{ config('app.name', 'Idea Stores') }}</title>
 
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <!-- Fonts -->
@@ -112,7 +113,7 @@
                           </a>
                         </div>
                     </div>
-                    <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-12">
+                    <div class="col-md-9 col-sm-6 order-sm-1 order-1 order-md-12 v-pre">
                         @yield('content')
                     </div>
                 </div>
