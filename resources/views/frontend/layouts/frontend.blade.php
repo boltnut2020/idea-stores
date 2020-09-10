@@ -98,6 +98,17 @@
             </div>
         </main>
     </div>
+    <style>
+        pre.prettyprint {
+            display: block;
+            overflow: auto;
+            width: auto;
+            max-height: 600px;
+            white-space: pre;
+            word-wrap: normal;
+            padding: 10px;   
+        }
+    </style>
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js?autorun=true&skin=sunburst"></script>
     <script>
         var elm = document.getElementsByTagName('pre')
@@ -106,6 +117,5 @@
             elm[i].className = elm[i].className + " prettyprint";
         }
     </script>
-
 </body>
 </html>

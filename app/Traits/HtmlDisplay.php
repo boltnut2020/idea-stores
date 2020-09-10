@@ -9,7 +9,7 @@ trait HtmlDisplay {
     var $urlReplace = '<a href="$1">Link</a>'; 
 
     public function displayHtml($target = "memo") {
-		$setLinkText = preg_replace($this->urlPattern, $this->urlReplace, $this->attributes[$target]);
+        $setLinkText = preg_replace($this->urlPattern, $this->urlReplace, $this->attributes[$target]);
         $setLinkTextBr = nl2br($setLinkText);
         return preg_replace_callback(
                                     '/<pre>(.*?)<\/pre>/s',
