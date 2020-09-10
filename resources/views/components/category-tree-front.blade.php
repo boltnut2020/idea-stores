@@ -6,7 +6,7 @@
                 {{ $category->name }}
             </a>
         </li>
-    	@foreach ($category->childrenRecursive as $children)
+        @foreach ($category->childrenRecursive as $children)
             <li class="list-group-item">>>
                 <a href="{{ route('frontend.articles.category', ['category' => $children->id]) }}">
                     {{ $children->name }}

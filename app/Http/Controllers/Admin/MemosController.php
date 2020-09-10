@@ -21,8 +21,8 @@ class MemosController extends Controller
     {
         // $memos = Memo::orderBy('id', 'desc')->paginate(10);;
         $memos = Memo::whereHas('users', function($query) {
-			$query->where('users.id', Auth::id());
-		})->orderBy('id', 'desc')->paginate(10);
+            $query->where('users.id', Auth::id());
+        })->orderBy('id', 'desc')->paginate(10);
         // return $videos;
         return view('memos.index', ['memos' => $memos]);
     }

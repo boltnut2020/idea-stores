@@ -18,6 +18,7 @@ Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['role:admin|writer|guest']], function () {
     Route::get('home', 'HomeController@index')->name('home');
+    Route::resource('profiles', 'ProfilesController');
 });
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['role:admin|writer']], function () {
