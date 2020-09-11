@@ -7,6 +7,70 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+a {
+  text-decoration: none;
+  color: #8338ec;
+}
+
+h3 {
+  border: 1px solid #fff;
+  border-left-width: .25rem;
+  border-bottom-width: .25rem;
+  border-left-color: #5bc0de;
+  border-bottom-color: #5bc0de;
+  border-radius: .25rem;
+  padding: 5px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  
+}
+
+nav {
+  border: 1px solid #fff;
+  border-left-width: .5rem;
+  border-bottom-width: .25rem;
+  border-left-color: #5bc0de;
+
+}
+//
+// Callouts
+//
+
+.bd-callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-color: #5bc0de;
+  border-left-width: .25rem;
+  border-radius: .25rem;
+}
+
+.bd-callout h4 {
+  margin-top: 0;
+  margin-bottom: .25rem;
+}
+
+.bd-callout p:last-child {
+  margin-bottom: 0;
+}
+
+.bd-callout code {
+  border-radius: .25rem;
+}
+
+.bd-callout + .bd-callout {
+  margin-top: -.25rem;
+}
+
+.card-header {
+  background: #5bc0de;
+}
+
+.fixed-button {
+   position: fixed; bottom: 10px; right: 30px;
+}
+
 
 .list-group a.active {
   background-color: black; 
@@ -21,19 +85,11 @@
   border-color: black;
 }
 
-a {
-  text-decoration: none;
-  color: #8338ec;
-}
-
-.fixed-button {
-   	position: fixed; bottom: 10px; right: 30px;
-}
 
 @media (min-width: 768px) { 
-	.fixed-button {
-   		position: static;
-	}
+    .fixed-button {
+        position: static;
+    }
 }
 
 .icon-button {

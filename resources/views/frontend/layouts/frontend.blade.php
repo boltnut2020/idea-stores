@@ -8,8 +8,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Idea Stores') }}</title>
-
+    <title>@yield('title'){{ config('app.name', 'Idea Stores') }}</title>
+    <meta name="description" content="@yield('description')">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
@@ -25,7 +25,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="text-white navbar navbar-expand-md navbar-light shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Idea Stores') }}
