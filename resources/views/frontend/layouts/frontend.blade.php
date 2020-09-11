@@ -85,13 +85,7 @@
                         @yield('content')
                     </div>
                      <div class="col-md-3 col-sm-6 order-sm-12 order-12 order-md-12">
-
                         <x-site-profile></x-site-profile>
-                        <div class="list-group mt-1">
-                          <a href="/" class="list-group-item list-group-item-action">
-                            Home
-                          </a>
-                        </div>
                         <x-category-tree-front categories></x-category-tree-front>
                     </div>
                </div>

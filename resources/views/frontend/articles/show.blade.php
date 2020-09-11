@@ -7,7 +7,7 @@
 
 <div class="card">
   <div class="card-body">
-      <h1 class="card-title pb-5">{{$article->title}}</h1>
+      <h1 class="card-title mt-3 mb-5">{{$article->title}}</h1>
       <p class="card-text">{{$article->content}}</p>
       <p class="card-text text-right">{{$article->created_at}}</p>
   </div>
