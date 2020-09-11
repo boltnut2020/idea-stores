@@ -4,7 +4,7 @@
 
 @section('content')
   @foreach ($articles as $article)
-    <div class="card mb-2">
+    <div class="card mb-3">
         <div class="card-header text-right">
         @foreach($article->categories as $c)
             <a class="btn btn-secondary" href="{{ route('frontend.articles.category', ['category' => $c->id]) }}" >#{{ $c->name }}</a>
