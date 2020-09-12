@@ -5,7 +5,7 @@
 @section('content')
 <form action="{{ route('admin.articles.update', ['article' => $article->id])}}" method="post">
 <div class="row">
-  <div class="col-9">
+  <div class="col-md-9 col-sm-12 order-md-1 order-12">
     {{ csrf_field() }}
     <div class="form-group">
       <label for="title">タイトル</label>
@@ -31,7 +31,7 @@
       <input type="submit" value="更新">
     </div>
   </div>
-  <div class="col-3">
+  <div class="col-md-3 col-sm-12 order-md-12 order-1 mb-3">
     <ul class="list-group">
     @foreach ($categories as $category)
         <li class="list-group-item">
