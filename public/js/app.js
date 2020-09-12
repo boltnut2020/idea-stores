@@ -50574,8 +50574,11 @@ Vue.component('clock-component', __webpack_require__(/*! ./components/ClockCompo
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-var app = new Vue({
+var markdown_editor = new Vue({
   el: '#markdown-editor'
+});
+var clock = new Vue({
+  el: '#clock'
 });
 
 /***/ }),
