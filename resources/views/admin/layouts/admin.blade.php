@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Idea Stores') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ mix('js/app.js') }}" defer></script>
     <script async src="https://cdn.ampproject.org/v0.js"></script>
 
     <!-- Fonts -->
@@ -24,6 +24,9 @@
 </head>
 <body>
     <div id="app">
+        <div id="clock" class="text-right">
+            <clock-component></clock-component>
+        </div>
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">

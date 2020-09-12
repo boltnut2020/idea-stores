@@ -39,7 +39,7 @@
             <input type="checkbox" name="categories[]" value="{{ $category->id }}" 
                     {{ in_array($category->id, $articleCategory, true) ? 'checked="checked"' : ''}}>
         </li>
-    	@foreach ($category->childrenRecursive as $children)
+        @foreach ($category->childrenRecursive as $children)
             <li class="list-group-item">>>
                 {{ $children->name }}
                 <input type="checkbox" name="categories[]" value="{{ $children->id }}" 
