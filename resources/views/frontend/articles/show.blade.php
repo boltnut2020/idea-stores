@@ -3,8 +3,17 @@
 @section('title', $article->title . ' | ')
 @section('description', $article->description . ' | ')
 
-@section('content')
+@section('ogp')
+<meta name="twitter:card" content="{{ $article->title }}" />
+<meta name="twitter:site" content="@boltnut2020" />
+<meta name="twitter:creator" content="@boltnut2020" />
+<meta property="og:url" content="https://idea-stores.herokuapp.com" />
+<meta property="og:title" content="{{ $article->title }}" />
+<meta property="og:description" content="{{ $article->description }}" />
+<meta property="og:image" content="" />
+@endsection
 
+@section('content')
 <div class="card">
   <div class="card-body">
       <h1 class="card-title mt-3 mb-5">{{$article->title}}</h1>
