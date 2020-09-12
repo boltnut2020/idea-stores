@@ -1,4 +1,4 @@
-<div class="mt-1 card mb-2">
+<div class="mt-1 card mb-2 bg-light">
     <div class="card-header">
         About
     </div>
