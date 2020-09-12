@@ -81,7 +81,9 @@ nav {
 }
 
 .card-header .btn {
-    font-size: 0.9em;
+    background: #007bff;
+    border-color: #007bff;
+    font-size: 0.75em;
     padding: 0.25rem 1.25rem
 }
 
