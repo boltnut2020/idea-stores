@@ -19,7 +19,7 @@
     </div>
     <div class="form-group">
       <label for="content">Content</label>
-      <textarea class="form-control"  name="content" placeholder="本文を入力してください">{{ $article->getRawOriginal('content') }}</textarea>
+      <textarea rows="8"  class="form-control"  name="content" placeholder="本文を入力してください">{{ $article->getRawOriginal('content') }}</textarea>
       <small id="contentHelp" class="form-text text-muted">記事の本文を入力します</small>
     </div>
     <div class="form-group">

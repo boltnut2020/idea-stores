@@ -11,7 +11,7 @@
         @endforeach
         </div>
         <div class="card-body">
-            <h2 class="card-title"><a class="btn btn-light" href="{{ route('frontend.articles.show', ['article' => $article->id]) }}">{{$article->title}}</a></h2>
+            <h2 class="card-title"><a class="text-dark" href="{{ route('frontend.articles.show', ['article' => $article->id]) }}">{{$article->title}}</a></h2>
             <p class="card-text text-left">{{ $article->description }}</p>
             <div class="text-right mb-2">
                 <a class="btn btn-light" href="{{ route('frontend.articles.show', ['article' => $article->id]) }}">{{ __('SHOW') }}</a>
