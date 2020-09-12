@@ -73,6 +73,10 @@ nav {
   margin-top: -.25rem;
 }
 
+.card {
+    min-height: 170px;
+}
+
 .card-header {
   background: #5bc0de;
   padding: 0.5rem 1.25rem;
