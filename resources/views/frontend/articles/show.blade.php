@@ -4,12 +4,12 @@
 @section('description', $article->description . ' | ')
 
 @section('ogp')
-<meta name="twitter:card" content="{{ $article->title }}" />
+<meta name="twitter:card" content="summary" />
 <meta name="twitter:site" content="@boltnut2020" />
 <meta name="twitter:creator" content="@boltnut2020" />
 <meta property="og:url" content="https://idea-stores.herokuapp.com" />
 <meta property="og:title" content="{{ $article->title }}" />
-<meta property="og:description" content="{{ $article->description }}" />
+<meta property="og:description" content="{{ $article->getRawOriginal('description') }}" />
 <meta property="og:image" content="" />
 @endsection
 
