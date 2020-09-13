@@ -30,8 +30,8 @@ class MemosController extends Controller
     public function thread()
     {
         $memos = Memo::whereHas('users', function($query) {
-			$query->where('users.id', Auth::id());
-		})->with(['childrenRecursive' => function($query) {
+            $query->where('users.id', Auth::id());
+        })->with(['childrenRecursive' => function($query) {
             $query->orderBy('updated_at', 'desc')->take(100);
         }])->whereNull('parent_id')->orderBy('updated_at', 'desc')->paginate(10);
         return view('memos.index', ['memos' => $memos]);

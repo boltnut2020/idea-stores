@@ -50,7 +50,7 @@ class ArticlesController extends Controller
         $article->title = $request->title;
         $article->description = $request->description;
         $article->content = $request->content;
-        $article->display = $request->dispaly;
+        $article->display = $request->display;
         // 保存
         $article->save();
         if ($request->has('categories')) {

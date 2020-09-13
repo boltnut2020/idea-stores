@@ -4,6 +4,11 @@
 
 @section('content')
   @foreach ($articles as $article)
+    @hasanyrole('admin|writer')
+    <div class="text-right">
+        <a class="text-right" href="{{ route('admin.articles.edit', ['article' => $article->id]) }}" >Edit</a>
+    </div>
+    @endrole
     <div class="card mb-3">
         <div class="card-body">
             <h2 class="card-title"><a class="text-light" href="{{ route('frontend.articles.show', ['article' => $article->id]) }}">{{$article->title}}</a></h2>
@@ -16,6 +21,7 @@
                             <a class="btn btn-dark" href="{{ route('frontend.articles.category', ['category' => $c->id]) }}" >#{{ $c->name }}</a>
                         @endforeach
                     </p>
+
                 </div>
                 <div class="col-6">
                     <p class="card-text text-right text-secondary">{{$article->created_at }}</p>

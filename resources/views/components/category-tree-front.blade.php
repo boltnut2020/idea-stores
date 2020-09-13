@@ -19,6 +19,5 @@
             @endforeach
         @endforeach
         </ul>
-       <!-- Simplicity is the consequence of refined emotions. - Jean D'Alembert -->
     </div>
 </div>

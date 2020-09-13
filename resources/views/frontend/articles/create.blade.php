@@ -25,7 +25,7 @@
     </div>
     <div class="form-group">
       <label for="content">Dispaly</label>
-      <input type="checkbox" name="dispaly" value="1" />
+      <input type="checkbox" name="display" value="1" />
       <small id="contentHelp" class="form-text text-muted">表示</small>
     </div>
 
@@ -34,7 +34,6 @@
     </div>
   </div>
   <div class="col-3">
-	
     <ul class="list-group">
     @foreach ($categories as $category)
         <li class="list-group-item">
@@ -42,7 +41,7 @@
             <input type="checkbox" name="categories[]" value="{{ $category->id }}" 
                     {{ in_array("web",[],true) ? 'checked="checked"' : ''}}>
         </li>
-    	@foreach ($category->childrenRecursive as $children)
+        @foreach ($category->childrenRecursive as $children)
             <li class="list-group-item">>>
                 {{ $children->name }}
                 <input type="checkbox" name="categories[]" value="{{ $children->id }}" 

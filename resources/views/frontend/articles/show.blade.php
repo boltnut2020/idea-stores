@@ -14,6 +14,12 @@
 @endsection
 
 @section('content')
+@hasanyrole('admin|writer')
+<div class="text-right">
+    <a class="text-right" href="{{ route('admin.articles.edit', ['article' => $article->id]) }}" >Edit</a>
+</div>
+@endrole
+
 <div class="card">
   <div class="card-body">
       <h1 class="card-title mt-3 mb-5">{{$article->title}}</h1>
