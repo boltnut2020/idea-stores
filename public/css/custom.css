@@ -28,6 +28,11 @@ h1::first-letter, h2::first-letter, h3::first-letter {
   font-weight: bold;
 }
 
+h2 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
 h3 {
   border: 1px solid #fff;
   border-left-width: .25rem;
