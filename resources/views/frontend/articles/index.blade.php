@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', '記事一覧')
+@section('title', '記事一覧' . '|')
 
 @section('content')
   @foreach ($articles as $article)
@@ -13,7 +13,7 @@
                 <div class="col-6">
                     <p class="">
                         @foreach($article->categories as $c)
-                            <a class="btn btn-danger" href="{{ route('frontend.articles.category', ['category' => $c->id]) }}" >#{{ $c->name }}</a>
+                            <a class="btn btn-dark" href="{{ route('frontend.articles.category', ['category' => $c->id]) }}" >#{{ $c->name }}</a>
                         @endforeach
                     </p>
                 </div>
