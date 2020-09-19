@@ -21,9 +21,9 @@ class Category extends Model
         return $this->hasMany('App\Category', 'parent_id');
     }
 
-	// recursive, loads all descendants
-	public function childrenRecursive()
-	{
-   		return $this->children()->with('childrenRecursive');
-	}
+    // recursive, loads all descendants
+    public function childrenRecursive()
+    {
+        return $this->children()->with('childrenRecursive');
+    }
 }

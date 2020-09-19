@@ -30,7 +30,7 @@ class CategoriesController extends Controller
     {
         //
         $categories = Category::where("parent_id", null)->pluck("name","id");
-		$selectedId = null;
+        $selectedId = null;
         return view('categories.create', ["categories" => $categories, 'selectedId' => $selectedId]);
     }
 
@@ -82,7 +82,7 @@ class CategoriesController extends Controller
         //
         $category = Category::find($id);
         $categories = Category::where("parent_id", null)->pluck("name","id");
-		$selectedId = $category->parent_id;
+        $selectedId = $category->parent_id;
         return view('categories.edit', ['category' => $category, 'categories' => $categories, 'selectedId' => $selectedId]);
     }
 
@@ -99,7 +99,9 @@ class CategoriesController extends Controller
         $category = Category::find($id);
         $category->name = $request->name;
         $category->slug = $request->slug;
-        $category->parent_id = $request->parent_id;
+        if ($request->filled('parent_id')) {
+            $category->parent_id = $request->parent_id;
+        }
         $category->save();
         return redirect()->route("admin.categories.show", ['category' => $id]);
     }
