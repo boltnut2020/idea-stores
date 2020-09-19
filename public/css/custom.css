@@ -108,6 +108,16 @@ nav {
     padding: 0.25rem 1.25rem
 }
 
+.navbar-brand {
+    font-size: 1.5rem;
+    padding: 0;
+}
+
+.navbar-brand::first-letter {
+    color: grey;
+    font-size: 1.85rem;
+}
+
 .fixed-button {
    position: fixed; bottom: 10px; right: 30px;
 }
